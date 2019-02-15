@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 
 class GameButtons extends Component{
     constructor(){
-        super();
-    }
+		super();
+	}
+	
     render(){
 		return(
 			<div className="col-sm-12 buttons">

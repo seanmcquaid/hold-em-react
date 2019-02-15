@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Deck from "../utilityClasses/Deck";
 import GameButtons from "./GameButtons";
+import PokerHand from "./PokerHand";
 
 class PokerTable extends Component{
     constructor(){
@@ -10,9 +11,10 @@ class PokerTable extends Component{
         this.cards.shuffleDeck();
         console.log(this.cards.deck)
         this.state = {
-            playersHand: [],
-            dealersHand: []
+            playersHand: ["purple_back","purple_back"],
+            dealersHand: ["purple_back","purple_back"]
         }
+        this.prepDeck = this.prepDeck.bind(this)
     }
     // this is a custom method that isn't coming from react
     prepDeck(){
@@ -31,7 +33,8 @@ class PokerTable extends Component{
             <div className="col-sm-12 the-table">
                 <PokerHand cards={this.state.dealersHand}/>
                 <PokerHand cards={this.state.playersHand}/>
-                <GameButtons/>
+                {/* can pass FUNCTIONS AS A PROP IF YOU DONT CALL IT  */}
+                <GameButtons dealFunction={this.prepDeck} />
             </div>
         )
     }
